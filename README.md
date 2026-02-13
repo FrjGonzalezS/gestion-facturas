@@ -21,6 +21,7 @@ Este proyecto es un monorepo que contiene:
 git clone https://github.com/tu-usuario/gestion-facturas.git
 cd gestion-facturas
 ```
+Crear archivo .env.local si no está, y escribir NEXT_PUBLIC_BACKEND_URL=https://localhost:61664
 
 ### 2. Frontend (Next.js)
 
