@@ -46,6 +46,11 @@ cd backend
 - El frontend se conecta automáticamente si la variable `NEXT_PUBLIC_BACKEND_URL` está configurada (ver `.env.local` en frontend).
 
 ---
+## Base de datos
+
+El backend utiliza SQLite como base de datos relacional, gestionada mediante Entity Framework Core. 
+No requiere instalación adicional: el archivo de la base de datos se crea automáticamente al ejecutar la API. 
+Esto facilita el desarrollo y las pruebas, ya que no necesitas configurar un servidor de base de datos externo.
 
 ## Estructura del proyecto
 
