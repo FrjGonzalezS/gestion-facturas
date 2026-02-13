@@ -56,14 +56,3 @@ gestion-facturas/
 └── README.md   # Instrucciones y guía
 ```
 
----
-
-## Notas
-- Puedes modificar la configuración de puertos en el backend editando `Properties/launchSettings.json`.
-- Para producción, deberás publicar ambos proyectos y configurar los entornos según tus necesidades.
-- El repositorio puede ser público sin problemas, no contiene secretos ni datos sensibles.
-
----
-
-## ¿Dudas o problemas?
-Abre un issue en GitHub o contacta al autor.
