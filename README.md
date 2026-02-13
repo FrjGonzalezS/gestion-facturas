@@ -18,7 +18,7 @@ Este proyecto es un monorepo que contiene:
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/gestion-facturas.git
+git clone https://github.com/FrjGonzalezS/gestion-facturas.git
 cd gestion-facturas
 ```
 Crear archivo .env.local en carpeta Frontend si no está, y escribir NEXT_PUBLIC_BACKEND_URL=https://localhost:61664
