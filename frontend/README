@@ -1,0 +1,142 @@
+# 🧾 Ejercicio Técnico - Desarrollador Full-Stack
+
+## 📌 Objetivo
+
+Implementar un sistema web para gestionar facturas, integrando datos desde un archivo JSON, almacenándolos en una base de datos y permitiendo su administración mediante una interfaz intuitiva.
+
+---
+
+# 🏗️ Requisitos Claves
+
+## 1️⃣ Integración desde JSON
+
+- Cargar facturas desde un archivo JSON en tiempo de ejecución.
+- Tomar como base el archivo: `bd_exam.json`.
+- El campo `invoice_number` debe ser único.
+- Validar coherencia entre:
+  - Suma de subtotales de productos
+  - Campo `total_amount`
+- Si los montos no coinciden:
+  - Marcar la factura como **inconsistente**
+  - Excluirla del sistema activo
+  - Mantenerla en base de datos para reportes
+
+### 📊 Cálculo automático del estado de la factura
+
+- `Issued` → No tiene notas de crédito.
+- `Cancelled` → La suma de las notas de crédito es igual al monto total.
+- `Partial` → La suma de las notas de crédito es menor al monto total.
+
+### 💳 Cálculo automático del estado de pago
+
+- `Pending` → Pago pendiente dentro del plazo.
+- `Overdue` → La factura está vencida según `payment_due_date`.
+- `Paid` → Pago registrado.
+
+---
+
+# 🚀 Funcionalidades Principales
+
+## 🔎 Búsqueda
+
+Permitir búsqueda de facturas por:
+- Número de factura
+- Estado de factura
+- Estado de pago
+
+> Se recomienda utilizar vistas en base de datos.
+
+---
+
+## 🧾 Gestión de Notas de Crédito (NC)
+
+- Permitir agregar notas de crédito a una factura.
+- Fecha de creación automática.
+- Validar que:
+  - El monto de la nota de crédito no supere el saldo pendiente.
+  - No se puede superar el monto total pendiente de la factura.
+
+---
+
+## 📊 Reportes
+
+### 1️⃣ Facturas consistentes vencidas
+
+- Facturas consistentes
+- Más de 30 días vencidas
+- Sin pago ni nota de crédito
+
+### 2️⃣ Resumen por estado de pago
+
+- Total de facturas por estado:
+  - `Paid`
+  - `Pending`
+  - `Overdue`
+- Porcentaje por cada estado
+
+### 3️⃣ Facturas inconsistentes
+
+- Facturas cuyo `total_amount` no coincide con la suma de productos
+
+---
+
+# 🛠️ Tecnologías Requeridas
+
+## 🔙 Backend
+
+- .NET 6 u 8
+- API REST
+- Swagger para documentación
+- Uso correcto de códigos HTTP
+- (Opcional) Autenticación
+
+---
+
+## 🗄️ Base de Datos
+
+- SQLite (referencia)
+- Entity Framework Core (u otro ORM)
+
+Documentación oficial:
+https://www.sqlite.org/docs.html
+
+---
+
+## 🎨 Frontend
+
+- React
+- Interfaz intuitiva
+- Validaciones en formularios
+
+---
+
+# 🧠 Buenas Prácticas
+
+- Implementar al menos un patrón de diseño (indicarlo en este README).
+- Priorizar:
+  - Calidad del código
+  - Organización del proyecto
+  - Version estable al momento de entrega
+
+---
+
+# 📦 Entrega Final
+
+- Enviar repositorio Git que incluya:
+  - Backend
+  - Frontend
+  - Scripts de base de datos (si aplica)
+- Incluir este archivo `README.md` con:
+  - Instrucciones claras de instalación y ejecución
+  - Credenciales si se implementa autenticación
+- La evaluación considerará el último commit dentro del plazo.
+
+---
+
+# ✅ Criterios de Evaluación
+
+- Correcta implementación de reglas de negocio
+- Manejo adecuado de estados
+- Validaciones
+- Uso correcto de tecnologías solicitadas
+- Organización y estructura del proyecto

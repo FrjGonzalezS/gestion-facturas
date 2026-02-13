@@ -1,0 +1,302 @@
+[
+  {
+    "ContainingType": "InvoiceManagement.Api.Endpoints.InvoiceEndpoints",
+    "Method": "GetInvoicesAsync",
+    "RelativePath": "api/invoices/",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "invoiceNumber",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "invoiceStatus",
+        "Type": "System.Nullable\u00601[[InvoiceManagement.Api.Domain.InvoiceStatus, InvoiceManagement.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "paymentStatus",
+        "Type": "System.Nullable\u00601[[InvoiceManagement.Api.Domain.PaymentStatus, InvoiceManagement.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "InvoiceManagement.Api.Application.DTOs.PaginatedResultDto\u00601[[InvoiceManagement.Api.Application.DTOs.InvoiceListDto, InvoiceManagement.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Invoices"
+    ],
+    "EndpointName": "GetInvoices",
+    "Description": "Get paginated list of consistent invoices with filtering"
+  },
+  {
+    "ContainingType": "InvoiceManagement.Api.Endpoints.InvoiceEndpoints",
+    "Method": "GetInvoiceByIdAsync",
+    "RelativePath": "api/invoices/{id:guid}",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "InvoiceManagement.Api.Application.DTOs.InvoiceDetailDto",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "Tags": [
+      "Invoices"
+    ],
+    "EndpointName": "GetInvoiceById",
+    "Description": "Get invoice details by ID"
+  },
+  {
+    "ContainingType": "InvoiceManagement.Api.Endpoints.InvoiceEndpoints",
+    "Method": "CreateCreditNoteAsync",
+    "RelativePath": "api/invoices/{id:guid}/credit-notes",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "InvoiceManagement.Api.Application.DTOs.CreateCreditNoteRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "InvoiceManagement.Api.Application.DTOs.InvoiceDetailDto",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 201
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "Tags": [
+      "Invoices"
+    ],
+    "EndpointName": "CreateCreditNote",
+    "Description": "Create a credit note for an invoice"
+  },
+  {
+    "ContainingType": "InvoiceManagement.Api.Endpoints.InvoiceEndpoints",
+    "Method": "CreatePaymentAsync",
+    "RelativePath": "api/invoices/{id:guid}/payments",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "InvoiceManagement.Api.Application.DTOs.CreatePaymentRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "InvoiceManagement.Api.Application.DTOs.InvoiceDetailDto",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 201
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "Tags": [
+      "Invoices"
+    ],
+    "EndpointName": "CreatePayment",
+    "Description": "Register a payment for an invoice"
+  },
+  {
+    "ContainingType": "InvoiceManagement.Api.Endpoints.InvoiceEndpoints",
+    "Method": "ImportInvoicesAsync",
+    "RelativePath": "api/invoices/import",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "InvoiceManagement.Api.Application.DTOs.ImportResultDto",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 400
+      }
+    ],
+    "Tags": [
+      "Invoices"
+    ],
+    "EndpointName": "ImportInvoices",
+    "Description": "Import invoices from bd_exam_invoices.json file"
+  },
+  {
+    "ContainingType": "InvoiceManagement.Api.Endpoints.ReportEndpoints",
+    "Method": "GetInconsistentInvoicesAsync",
+    "RelativePath": "api/reports/inconsistents",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[InvoiceManagement.Api.Application.DTOs.InconsistentInvoiceDto, InvoiceManagement.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Reports"
+    ],
+    "EndpointName": "GetInconsistentInvoices",
+    "Description": "Get all inconsistent invoices (total != sum of items)"
+  },
+  {
+    "ContainingType": "InvoiceManagement.Api.Endpoints.ReportEndpoints",
+    "Method": "GetOverdueInvoicesAsync",
+    "RelativePath": "api/reports/overdue-30d-without-payment-without-cn",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[InvoiceManagement.Api.Application.DTOs.OverdueInvoiceDto, InvoiceManagement.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Reports"
+    ],
+    "EndpointName": "GetOverdueInvoices",
+    "Description": "Get invoices overdue \u003E30 days without payment and without credit notes"
+  },
+  {
+    "ContainingType": "InvoiceManagement.Api.Endpoints.ReportEndpoints",
+    "Method": "GetPaymentStatusSummaryAsync",
+    "RelativePath": "api/reports/payment-status-summary",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "InvoiceManagement.Api.Application.DTOs.PaymentStatusSummaryDto",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Reports"
+    ],
+    "EndpointName": "GetPaymentStatusSummary",
+    "Description": "Get summary and percentage breakdown by payment status"
+  },
+  {
+    "ContainingType": "Program\u002B\u003C\u003Ec",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_4",
+    "RelativePath": "health",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "Tags": [
+      "Health"
+    ],
+    "EndpointName": "HealthCheck"
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Cargar JSON",
+    "href": "/dashboard/cargar-json",
+    "icon": "Upload"
+  },
+  {
+    "title": "Facturas",
+    "href": "/invoices",
+    "icon": "ReceiptText"
+  },
+  {
+    "title": "Reportes",
+    "href": "/reports",
+    "icon": "BarChart3"
+  },
+  {
+    "title": "Inconsistentes",
+    "href": "/inconsistentes",
+    "icon": "AlertTriangle"
+  }
+]
